@@ -8,4 +8,8 @@ public interface TaskRepository {
     void save(Task task1);
 
     List<Task> findAll();
+
+    void delete_task(int id_task);
+
+    void update_task(int id_task, String newcontent);
 }

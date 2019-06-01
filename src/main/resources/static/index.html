@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="polytask">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>TodoApp</title>
+
+    <!-- perso CSS -->
+<!--    <link href="css/styles_perso.css" rel="stylesheet">-->
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -53,12 +56,42 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container" ng-controller="MainController">
 
     <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
+        <h1>Todo Application</h1>
+<!--        <div class="card-body ">-->
+<!--            <h1>La liste des tâches</h1>-->
+            </br>
+            <div ng-repeat="task in list_task ">
+                </br>
+                <h5 class="btn-group ">
+                    <button ng-click="deleteTodo(task.id) " class="btn btn-primary ">
+                        X
+                    </button>
+                    <span class="btn btn-secondary ">
+                            {{task.content}}
+                        </span>
+                </h5>
+                <button ng-click="showEditTask=!showEditTask " class="btn btn-info ">Editer</button>
+                <span ng-show="showEditTask==true ">
+                        <input type=" text " placeholder="écrire quelque chose " ng-model="newtask.content">
+                        <button class="btn btn-warning " ng-click="updateToDo(task.id);showEditTask=!showEditTask;">Confirmer</button>
+                    </span>
+            </div>
+            </br>
+            <div id="todo-form ">
+                <form>
+                    <div class="form-group ">
+                        <h5>
+                            <label>Nom de tâche :</label>
+                        </h5>
+                        <input type="text " placeholder="écrire quelque chose " ng-model="taskname " class="form-control ">
+                    </div>
+                    <button type="submit " ng-click="createTodo(); " class="btn btn-success ">Ajouter</button>
+                </form>
+            </div>
+<!--        </div>-->
     </div>
 
 </div><!-- /.container -->
@@ -68,6 +101,9 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="js/app.js"></script>
+
 </body>
 </html>
 m

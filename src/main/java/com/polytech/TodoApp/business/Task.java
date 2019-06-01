@@ -10,10 +10,10 @@ import javax.persistence.Table;
 public class Task {
 
     @Id
-    @Column(name="Id_story")
+    @Column(name="idtask")
     private int id;
 
-    @Column(name = "Content")
+    @Column(name = "content")
     private String content;
 
     public Task(){}
