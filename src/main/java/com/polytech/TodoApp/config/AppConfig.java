@@ -32,6 +32,23 @@ public class AppConfig {
         return new TaskServiceImpl(taskRepository());
     }
 
+    @Bean
+    UserRepository userRepository() {
+        // Pas besoin d'avoir un parametre DataSource, la reference se fait automatiquement
+        return new JpaUserRepository();
+    }
+
+    @Bean
+    AuthorityRepository authorityRepository(){
+//        return new JDBCAuthorityRepository(datasource());
+        return new JpaAuthorityRepository();
+    }
+
+    @Bean
+    RegisterService registerService(){
+        return new RegisterServiceImpl(userRepository(), authorityRepository());
+    }
+
 
 }
 
