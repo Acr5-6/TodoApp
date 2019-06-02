@@ -48,8 +48,6 @@ angular.module('polytask', [])
         /******* update a task *******/
 
         $scope.updateToDo = function(idtask) {
-            // $scope.updateData.idtask = id;
-            // $scope.updateData.username = $cookies.username;
             console.log($scope.newtask.content);
             let newContent = $scope.newtask.content;
             console.log(newContent);
@@ -68,8 +66,15 @@ angular.module('polytask', [])
             }
         };
 
-
-
+        /******* finish a task *******/
+        $scope.done = function(id_task) {
+            $http.post('/done', id_task).then(function (resp) {
+                    $scope.list_task = resp.data;
+                    gettasks();
+                },function (data) {
+                    console.log('Error: ' + data);
+                })
+        };
     })
     .controller('RegisterController', function ($scope, $http) {
 
@@ -83,8 +88,8 @@ angular.module('polytask', [])
                 enabled: 1
             };
 
-            $http.post('/registerU', user).then(function () {
-                console.log("ADD user Success : ");
+            $http.post('/registerU', user).then(function (resp) {
+                console.log("ADD user Success : " + resp);
                 // window.location.assign('tasks.html');
             }, function (err) {
                 console.log("ADD user ERROR : " + err);

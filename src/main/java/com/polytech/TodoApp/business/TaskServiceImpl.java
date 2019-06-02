@@ -31,4 +31,9 @@ public class TaskServiceImpl implements TaskService {
         taskRepository.update_task(id_task,newcontent);
 
     }
+
+    @Override
+    public void done(int id) {
+        taskRepository.done(id);
+    }
 }

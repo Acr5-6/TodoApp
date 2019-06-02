@@ -23,7 +23,6 @@ public class AppConfig {
     @Bean
     TaskRepository taskRepository() {
         // Pas besoin d'avoir un parametre DataSource, la reference se fait automatiquement
-//        return new InMemoryTaskRepository();
         return new JpaTaskRepository();
     }
 
@@ -40,7 +39,6 @@ public class AppConfig {
 
     @Bean
     AuthorityRepository authorityRepository(){
-//        return new JDBCAuthorityRepository(datasource());
         return new JpaAuthorityRepository();
     }
 

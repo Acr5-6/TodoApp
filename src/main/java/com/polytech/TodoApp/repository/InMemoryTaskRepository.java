@@ -30,4 +30,9 @@ public class InMemoryTaskRepository implements TaskRepository {
     public void update_task(int id_task, String newcontent) {
         //update task
     }
+
+    @Override
+    public void done(int id) {
+        // done task
+    }
 }

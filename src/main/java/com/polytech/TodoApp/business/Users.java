@@ -1,9 +1,8 @@
 package com.polytech.TodoApp.business;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -20,6 +19,10 @@ public class Users {
     @Column(name = "enabled")
     private int enabled;
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user")
+    private List<Task> taskList = new ArrayList<Task>();
+
     public Users(String username, String pwd, int enabled) {
         this.username = username;
         this.password = pwd;
@@ -33,6 +36,13 @@ public class Users {
         this.password = pwd;
     }
 
+    public List<Task> getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(List<Task> taskList) {
+        this.taskList = taskList;
+    }
 
     public String getUsername() {
         return username;

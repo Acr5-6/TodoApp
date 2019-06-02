@@ -1,6 +1,8 @@
 package com.polytech.TodoApp.repository;
 
 import com.polytech.TodoApp.business.Task;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,7 +18,8 @@ public class JpaTaskRepository implements TaskRepository {
 
     @Override
     public List<Task> findAll() {
-        Query req = em.createQuery("SELECT t FROM Task t ORDER BY t.id DESC");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Query req = em.createQuery("SELECT t FROM Task t where t.username = '" + authentication.getName() + "'");
         return (List<Task>) req.getResultList();
     }
 
@@ -37,6 +40,12 @@ public class JpaTaskRepository implements TaskRepository {
 //        updateTask.setDone(task.isDone());
         updateTask.setContent(newcontent);
 
+    }
+
+    @Override
+    public void done(int id) {
+        Task t = em.find(Task.class, id);
+        t.setDone(!t.isDone());
     }
 
 

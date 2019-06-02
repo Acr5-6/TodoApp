@@ -9,4 +9,6 @@ public interface TaskService {
     void delete_task(int id_task);
 
     void update_task(int id_task, String newcontent);
+
+    void done(int id);
 }
