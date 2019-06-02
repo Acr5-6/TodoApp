@@ -1,5 +1,5 @@
 angular.module('polytask', [])
-    .controller('MainController', function($scope, $http, $window) {
+    .controller('MainController', function($scope, $http) {
 
         $scope.taskname ="";
         $scope.newtask = {};
@@ -11,7 +11,7 @@ angular.module('polytask', [])
                 $scope.list_task=res.data;
                 console.log($scope.list_task);
             }, function(res){
-                console.log("ERROR :", res)
+                console.log("ERROR :", res);
             });
         };
 
@@ -68,5 +68,28 @@ angular.module('polytask', [])
             }
         };
 
+
+
+    })
+    .controller('RegisterController', function ($scope, $http) {
+
+
+        /***** add user ****/
+        $scope.registerUser = function () {
+            console.log($scope.username, $scope.password);
+            let user = {
+                username: $scope.username,
+                password: $scope.password,
+                enabled: 1
+            };
+
+            $http.post('/registerU', user).then(function () {
+                console.log("ADD user Success : ");
+                // window.location.assign('tasks.html');
+            }, function (err) {
+                console.log("ADD user ERROR : " + err);
+                alert(err.data.message);
+            })
+        }
 
     });

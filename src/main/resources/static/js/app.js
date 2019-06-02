@@ -11,7 +11,7 @@ angular.module('polytask', [])
                 $scope.list_task=res.data;
                 console.log($scope.list_task);
             }, function(res){
-                console.log("ERROR :", res)
+                console.log("ERROR :", res);
             });
         };
 
@@ -83,11 +83,12 @@ angular.module('polytask', [])
                 enabled: 1
             };
 
-            $http.post('/registerU', user).then(function (data) {
-                console.log("ADD user Success : " + data);
+            $http.post('/registerU', user).then(function () {
+                console.log("ADD user Success : ");
                 // window.location.assign('tasks.html');
-            }, function (data) {
-                console.log("ADD user ERROR : " + data)
+            }, function (err) {
+                console.log("ADD user ERROR : " + err);
+                alert(err.data.message);
             })
         }
 
