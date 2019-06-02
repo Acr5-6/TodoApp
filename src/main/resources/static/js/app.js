@@ -93,7 +93,7 @@ angular.module('polytask', [])
                 // window.location.assign('tasks.html');
             }, function (err) {
                 console.log("ADD user ERROR : " + err);
-                alert(err.data.message);
+
             })
         }
 

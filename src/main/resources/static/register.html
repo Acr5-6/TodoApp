@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="polytask">
+<html lang="en" ng-app="polytask" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
@@ -12,12 +12,30 @@
 
 
 </head>
+<!--header-->
+<div class="navbar navbar-expand-md navbar-dark fixed-top bg-primary sticky-navigation">
+    <a class="navbar-brand" href="#"><strong>TODOAPP</strong></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-3">
+                <a class="nav-link page-scroll" href="register.html">Register</a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link page-scroll" href="tasks.html">Sign in </a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <body ng-controller="RegisterController">
 <div class="container-fluid gedf-wrapper">
     <div class="d-flex justify-content-center h-100">
         <div class="card">
             <div class="card-header">
+            </br></br>
                 <h3>Inscription</h3>
             </div>
             <div class="card-body">

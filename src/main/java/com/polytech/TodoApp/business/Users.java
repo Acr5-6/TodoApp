@@ -21,7 +21,7 @@ public class Users {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user")
-    private List<Task> taskList = new ArrayList<Task>();
+    private List<Task> taskList = new ArrayList<>();
 
     public Users(String username, String pwd, int enabled) {
         this.username = username;

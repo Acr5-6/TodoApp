@@ -26,5 +26,8 @@ public class Main {
 
         String hash = new BCryptPasswordEncoder().encode("alix");
         System.out.println(hash);
+
+        hash = new BCryptPasswordEncoder().encode("toto");
+        System.out.println(hash);
     }
 }
