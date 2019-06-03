@@ -15,6 +15,7 @@ L'application est disponible sur Heroku au lien suivant : [Heroku][lien]
 * Maven
 * Spring
 * Bootstrap
+* MySQL
 * AngularJS
 * Heroku
 
