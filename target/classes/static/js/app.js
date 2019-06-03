@@ -78,21 +78,20 @@ angular.module('polytask', [])
     })
     .controller('RegisterController', function ($scope, $http) {
 
-
         /***** add user ****/
         $scope.registerUser = function () {
             console.log($scope.username, $scope.password);
             let user = {
                 username: $scope.username,
-                password: $scope.password,
-                enabled: 1
+                password: $scope.password
             };
 
             $http.post('/registerU', user).then(function (resp) {
                 console.log("ADD user Success : " + resp);
-                // window.location.assign('tasks.html');
+                window.location.replace('tasks.html');
             }, function (err) {
-                console.log("ADD user ERROR : " + err);
+                window.alert("Username already exists. Please, Choose another one. Thank you!");
+                console.log("ADD user ERROR : " + err.data);
 
             })
         }
