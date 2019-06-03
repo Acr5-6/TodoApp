@@ -18,4 +18,4 @@ L'application est disponible sur Heroku au lien suivant : [Heroku][lien]
 * AngularJS
 * Heroku
 
-[lien]: http://duret-gattaz-tchikitasks.herokuapp.com
+[lien]: https://todoapp-spring.herokuapp.com/
