@@ -16,22 +16,12 @@ public class UsersController {
     RegisterService registerService;
 
 
-//    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/registerU")
-    public void register(@RequestBody Users user){
+    public void register(@RequestBody Users user)  throws UsernameException{
         System.out.println("addUser");
-//        try {
-//            registerService.add_Users(user);
-//        } catch (UsernameException e){
-//            throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, e.getMessage(), e);
-//        }
-        registerService.add_Users(
-                new Users(user.getUsername(),
-                        new BCryptPasswordEncoder().encode(user.getPassword()),
-                        user.getEnabled()
-                )
-        );
-
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        user.setEnabled(true);
+        registerService.add_Users(user);
     }
 
 }

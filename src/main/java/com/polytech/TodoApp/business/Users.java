@@ -17,13 +17,13 @@ public class Users {
     private String password;
 
     @Column(name = "enabled")
-    private int enabled;
+    private Boolean enabled;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user")
     private List<Task> taskList = new ArrayList<>();
 
-    public Users(String username, String pwd, int enabled) {
+    public Users(String username, String pwd, Boolean enabled) {
         this.username = username;
         this.password = pwd;
         this.enabled = enabled;
@@ -48,11 +48,11 @@ public class Users {
         return username;
     }
 
-    public int getEnabled() {
+    public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(int enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 

@@ -14,13 +14,13 @@ public class AppConfig {
     @Bean
     DataSource datasource() {
         MysqlDataSource dataSource = new MysqlDataSource();
-//        dataSource.setURL("jdbc:mysql://localhost:3306/polytask");
-//        dataSource.setUser("root");
-//        dataSource.setPassword("root");
-        dataSource.setURL("jdbc:mysql://mysql-acr.alwaysdata.net:3306/acr_polytask");
-        dataSource.setUser("acr");
-        dataSource.setPassword("€iRM€974$");
-        dataSource.setDatabaseName("acr_polytask");
+        dataSource.setURL("jdbc:mysql://localhost:3306/polytask");
+        dataSource.setUser("root");
+        dataSource.setPassword("root");
+//        dataSource.setURL("jdbc:mysql://mysql-acr.alwaysdata.net:3306/acr_polytask");
+//        dataSource.setUser("acr");
+//        dataSource.setPassword("€iRM€974$");
+//        dataSource.setDatabaseName("acr_polytask");
         return dataSource;
     }
 

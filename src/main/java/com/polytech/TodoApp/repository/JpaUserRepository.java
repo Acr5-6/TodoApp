@@ -15,16 +15,16 @@ public class JpaUserRepository implements UserRepository {
     EntityManager em;
 
     @Override
-    public void Add_users(Users user) {
-//        if(em.find(Users.class, user.getUsername()) == null) {
-//            String hash = new BCryptPasswordEncoder().encode(user.getPassword());
-//            user.setPassword(hash);
-//            em.persist(user);
-//        } else {
-//            throw new UsernameException();
-//        }
-        String hash = new BCryptPasswordEncoder().encode(user.getPassword());
-        user.setPassword(hash);
-        em.persist(user);
+    public void Add_users(Users user) throws UsernameException{
+        if(em.find(Users.class, user.getUsername()) == null) {
+            String hash = new BCryptPasswordEncoder().encode(user.getPassword());
+            user.setPassword(hash);
+            em.persist(user);
+        } else {
+            throw new UsernameException();
+        }
+//        String hash = new BCryptPasswordEncoder().encode(user.getPassword());
+//        user.setPassword(hash);
+//        em.persist(user);
     }
 }

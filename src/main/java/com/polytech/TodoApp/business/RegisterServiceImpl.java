@@ -15,7 +15,7 @@ public class RegisterServiceImpl implements RegisterService {
 
 
     @Override
-    public void add_Users(Users user){
+    public void add_Users(Users user)  throws UsernameException{
         System.out.println(user);
         System.out.println(user.getUsername() + " " +  user.getPassword() + " " + user.getEnabled());
 
